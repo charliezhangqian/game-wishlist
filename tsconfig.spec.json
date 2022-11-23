@@ -5,7 +5,8 @@
     "outDir": "./out-tsc/spec",
     "module": "CommonJs",
     "types": [
-      "jest"
+      "jest",
+      "node"
     ]
   },
   "files": [
