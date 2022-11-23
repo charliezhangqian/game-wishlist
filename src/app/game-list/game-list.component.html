@@ -1,0 +1,21 @@
+<input type="text" (change)="search($event)" />
+
+<div class="card-list" *ngFor="let game of games | async">
+  <div class="card">
+    <div class="thumb"><img [src]="game.thumb" /></div>
+    <div class="title">{{ game.title }}</div>
+    <div class="release-date">{{ game.releaseDate }}</div>
+    <div class="rating">{{ game.steamRatingPercent }}</div>
+    <div class="deal-rating">{{ game.dealRating }}</div>
+    <div class="footer">
+      <span class="price">{{ game.normalPrice | currency }}</span>
+      <span class="price">{{ game.salePrice | currency }}</span>
+      <ng-container [ngSwitch]="game.isLiked">
+        <button *ngSwitchCase="false" class="like" (click)="addGame(game)">
+          Like
+        </button>
+        <button *ngSwitchCase="true">dislike</button>
+      </ng-container>
+    </div>
+  </div>
+</div>
